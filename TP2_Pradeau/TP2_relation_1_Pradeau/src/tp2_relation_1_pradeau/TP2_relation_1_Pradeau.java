@@ -36,7 +36,7 @@ public class TP2_relation_1_Pradeau {
 
         System.out.println(reno + " possède les voitures suivantes:");
         for (int i = 0; i < reno.nbVoitures; i++) {
-            System.out.println(reno.liste_voitures[i]);
+        System.out.println(reno.liste_voitures[i]);
         }
     }
 }
