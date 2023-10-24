@@ -11,12 +11,29 @@ import armes.*;
  * @author Utilisateur
  */
 public class Personnage {
+    //Méthode statique pour obtenir le nombre total de personnages
+    public static int getNombreDePersonnages() {
+        return nombreDePersonnages;
+    }
+
+    // Méthode statique pour obtenir le nombre de guerriers
+    public static int getNombreDeGuerriers() {
+        return nombreDeGuerriers;
+    }
+
+    // Méthode statique pour obtenir le nombre de magiciens
+    public static int getNombreDeMagiciens() {
+        return nombreDeMagiciens;
+    }
     String nom;
     int pdv;
     Arme ajouter;
     ArrayList<Arme> tab2 = new ArrayList<Arme>();
     Arme arme_en_main;
     
+    static int nombreDePersonnages = 0;
+    static int nombreDeGuerriers = 0;
+    static int nombreDeMagiciens = 0;
     
     public void ajouter_arme (Arme armedonnée){
         ajouter=armedonnée;
@@ -45,6 +62,7 @@ public class Personnage {
         pdv = pv;
         nom = n;
         arme_en_main=null;
+        nombreDePersonnages++;
         
         
     }
