@@ -14,11 +14,9 @@ public class LightOff_Pradeau_version_console {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Partie partie = new Partie(5, 5);
-        
-        // Lance la partie
+        Partie partie = new Partie();
         partie.lancerPartie();
-   
-    }}
+    }
+}
     
 

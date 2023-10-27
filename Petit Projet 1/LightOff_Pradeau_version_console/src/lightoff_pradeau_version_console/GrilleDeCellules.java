@@ -48,17 +48,27 @@ public class GrilleDeCellules {
         }
     }
 
-    public boolean cellulesToutesEteintes() {
-        for (int i = 0; i < nbLignes; i++) {
-            for (int j = 0; j < nbColonnes; j++) {
-                if (matriceCellules[i][j].estEteint()) {
-                    return false;
-                }
+    public boolean cellulesToutesAllumees() {
+    for (int i = 0; i < nbLignes; i++) {
+        for (int j = 0; j < nbColonnes; j++) {
+            if (!matriceCellules[i][j].getEtat()) {
+                return false; // Si une cellule n'est pas allumée, retourne false
             }
         }
-        return true;
     }
+    return true; // Toutes les cellules sont allumées
+}
 
+public boolean cellulesToutesEteintes() {
+    for (int i = 0; i < nbLignes; i++) {
+        for (int j = 0; j < nbColonnes; j++) {
+            if (matriceCellules[i][j].getEtat()) {
+                return false; // Si une cellule n'est pas éteinte, retourne false
+            }
+        }
+    }
+    return true; // Toutes les cellules sont éteintes
+}
     public void melangerMatriceAleatoirement(int nbTours) {
         Random random = new Random();
 
