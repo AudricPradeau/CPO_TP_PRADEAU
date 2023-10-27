@@ -61,8 +61,5 @@ public class CelluleLumineuse {
     @Override
     public String toString() {
         return etat ? "X" : "O";
-    }}
-
-    
-    
-
+    }
+}

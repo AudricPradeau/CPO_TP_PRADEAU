@@ -17,11 +17,17 @@ public class GrilleDeCellules {
     private int nbLignes;
     private int nbColonnes;
 
+    /**
+     * Constructeur de la classe GrilleDeCellules.
+     *
+     * @param nbLignes    Le nombre de lignes de la grille.
+     * @param nbColonnes  Le nombre de colonnes de la grille.
+     */
     public GrilleDeCellules(int nbLignes, int nbColonnes) {
         this.nbLignes = nbLignes;
         this.nbColonnes = nbColonnes;
         matriceCellules = new CelluleLumineuse[nbLignes][nbColonnes];
-        
+
         // Initialisation de la matrice de cellules
         for (int i = 0; i < nbLignes; i++) {
             for (int j = 0; j < nbColonnes; j++) {
@@ -30,45 +36,74 @@ public class GrilleDeCellules {
         }
     }
 
+    /**
+     * Active toutes les cellules d'une ligne spécifique de la grille.
+     *
+     * @param idLigne  L'indice de la ligne à activer.
+     */
     public void activerLigneDeCellules(int idLigne) {
         for (int j = 0; j < nbColonnes; j++) {
             matriceCellules[idLigne][j].activerCellule();
         }
     }
 
+    /**
+     * Active toutes les cellules d'une colonne spécifique de la grille.
+     *
+     * @param idColonne  L'indice de la colonne à activer.
+     */
     public void activerColonneDeCellules(int idColonne) {
         for (int i = 0; i < nbLignes; i++) {
             matriceCellules[i][idColonne].activerCellule();
         }
     }
 
+    /**
+     * Active la diagonale descendante de la grille en allumant les cellules correspondantes.
+     */
     public void activerDiagonaleDescendante() {
         for (int i = 0; i < Math.min(nbLignes, nbColonnes); i++) {
             matriceCellules[i][i].activerCellule();
         }
     }
 
+    /**
+     * Vérifie si toutes les cellules de la grille sont allumées.
+     *
+     * @return true si toutes les cellules sont allumées, sinon false.
+     */
     public boolean cellulesToutesAllumees() {
-    for (int i = 0; i < nbLignes; i++) {
-        for (int j = 0; j < nbColonnes; j++) {
-            if (!matriceCellules[i][j].getEtat()) {
-                return false; // Si une cellule n'est pas allumée, retourne false
+        for (int i = 0; i < nbLignes; i++) {
+            for (int j = 0; j < nbColonnes; j++) {
+                if (!matriceCellules[i][j].getEtat()) {
+                    return false;
+                }
             }
         }
+        return true;
     }
-    return true; // Toutes les cellules sont allumées
-}
 
-public boolean cellulesToutesEteintes() {
-    for (int i = 0; i < nbLignes; i++) {
-        for (int j = 0; j < nbColonnes; j++) {
-            if (matriceCellules[i][j].getEtat()) {
-                return false; // Si une cellule n'est pas éteinte, retourne false
+    /**
+     * Vérifie si toutes les cellules de la grille sont éteintes.
+     *
+     * @return true si toutes les cellules sont éteintes, sinon false.
+     */
+    public boolean cellulesToutesEteintes() {
+        for (int i = 0; i < nbLignes; i++) {
+            for (int j = 0; j < nbColonnes; j++) {
+                if (matriceCellules[i][j].getEtat()) {
+                    return false;
+                }
             }
         }
+        return true;
     }
-    return true; // Toutes les cellules sont éteintes
-}
+
+    /**
+     * Mélange la grille de manière aléatoire en effectuant un certain nombre de tours.
+     *
+     * @param nbTours  Le nombre de tours de mélange à effectuer.
+     */
     public void melangerMatriceAleatoirement(int nbTours) {
         Random random = new Random();
 
@@ -87,10 +122,15 @@ public boolean cellulesToutesEteintes() {
         }
     }
 
+    /**
+     * Redéfinition de la méthode toString pour afficher l'état de la grille de manière stylée.
+     *
+     * @return La représentation textuelle de l'état de la grille.
+     */
     @Override
     public String toString() {
         StringBuilder grilleStr = new StringBuilder();
-        
+
         for (int i = 0; i < nbLignes; i++) {
             for (int j = 0; j < nbColonnes; j++) {
                 grilleStr.append(matriceCellules[i][j]);
@@ -98,9 +138,7 @@ public boolean cellulesToutesEteintes() {
             }
             grilleStr.append("\n");
         }
-        
+
         return grilleStr.toString();
     }
 }
-    
-
