@@ -98,7 +98,7 @@ public class Partie {
                 grille = new GrilleDeCellules(7, 7);
                 break;
             default:
-                System.out.println("Niveau de difficulté non valide. Niveau normal (4x4) choisi par défaut.");
+                System.out.println("Niveau de difficulté non valide. Niveau normal (5x5) choisi par défaut.");
                 break;
         }
     }
